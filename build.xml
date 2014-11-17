@@ -3,6 +3,7 @@
 
  <property environment="env"/>
  <property file="${basedir}/build.properties" />
+ <property file="${basedir}/versions.properties" />
 
  <!-- default settings -->
  <property name="IDEA_JAVA_HOME" location="${java.home}" />
@@ -126,10 +127,9 @@
  </target>
  
  <target name="idea-14">
-     <property name="idea.build" value="latest.lastSuccessful" />
      <idea dest="idea"
-           build-type="ijplatform_IjPlatformMaster_IdeaTrunk_Installers"
-           build-number="${idea.build}">
+           build-type="${IDEA-14.type}"
+           build-number="${IDEA-14.number}">
          <teamcity-plugin/>
      </idea>
  </target>
