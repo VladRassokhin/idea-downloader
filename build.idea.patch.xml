@@ -102,6 +102,7 @@ cd `dirname $script`
             -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${idea-debug-port}
             -XX:+UseCompressedOops
             -XX:ReservedCodeCacheSize=228m
+            -Dsun.awt.disablegrab=true
         </concat>
         <replaceregexp file="${idea-vmo-path}" match="[\r\n]+" replace="${line.separator}" flags="g" byline="false"/>
         <replaceregexp file="${idea-vmo-path}" match="^\s+" replace="" flags="g" byline="true"/>

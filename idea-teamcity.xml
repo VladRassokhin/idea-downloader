@@ -1,0 +1,54 @@
+<project name="idea-teamcity" default="start" basedir=".">
+
+    <import file="build.xml"/>
+
+    <target name="idea-tc-idea-plugin">
+        <idea dest="idea-tc-idea-plugin"
+              debug-port="6101"
+              build-type="${IDEA-14.1.type}"
+              build-number="${IDEA-14.1.number}">
+            <teamcity-plugin/>
+        </idea>
+    </target>
+
+    <target name="idea-tc-idea-plugin-9.1">
+        <idea dest="idea-tc-idea-plugin-9.1"
+              debug-port="6110"
+              build-type="${IDEA-14.1.type}"
+              build-number="${IDEA-14.1.number}">
+            <teamcity-plugin/>
+        </idea>
+    </target>
+
+    <target name="idea-tc-idea-plugin-9.0">
+        <idea dest="idea-tc-idea-plugin-9.0"
+              debug-port="6109"
+              build-type="${IDEA-14.1.type}"
+              build-number="${IDEA-14.1.number}">
+            <teamcity-plugin/>
+        </idea>
+    </target>
+
+    <target name="idea-tc-idea-plugin-8.1">
+        <idea dest="idea-tc-idea-plugin-8.1"
+              debug-port="6108"
+              build-type="${IDEA-14.1.type}"
+              build-number="${IDEA-14.1.number}">
+            <teamcity-plugin/>
+        </idea>
+    </target>
+
+
+    <target name="run-tc-idea">
+        <run-app dest="idea-tc-idea-plugin"/>
+    </target>
+    <target name="run-tc-idea-9.1">
+        <run-app dest="idea-tc-idea-plugin-9.1"/>
+    </target>
+    <target name="run-tc-idea-9.0">
+        <run-app dest="idea-tc-idea-plugin-9.0"/>
+    </target>
+    <target name="run-tc-idea-8.1">
+        <run-app dest="idea-tc-idea-plugin-8.1"/>
+    </target>
+</project>
