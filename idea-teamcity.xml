@@ -1,39 +1,44 @@
 <project name="idea-teamcity" default="start" basedir=".">
 
     <import file="build.xml"/>
+    <property file="${basedir}/idea-teamcity.properties"/>
 
     <target name="idea-tc-idea-plugin">
         <idea dest="idea-tc-idea-plugin"
-              debug-port="6101"
-              build-type="${IDEA-14.1.type}"
-              build-number="${IDEA-14.1.number}">
+              debug-port="6100"
+              build-type="${IDEA-TC.type}"
+              build-number="${IDEA-TC.number}"
+              unscrambled="${IDEA-TC.unscrambled}">
             <teamcity-plugin/>
         </idea>
     </target>
 
     <target name="idea-tc-idea-plugin-9.1">
         <idea dest="idea-tc-idea-plugin-9.1"
-              debug-port="6110"
-              build-type="${IDEA-14.1.type}"
-              build-number="${IDEA-14.1.number}">
+              debug-port="6191"
+              build-type="${IDEA-TC.type}"
+              build-number="${IDEA-TC.number}"
+              unscrambled="${IDEA-TC.unscrambled}">
             <teamcity-plugin/>
         </idea>
     </target>
 
     <target name="idea-tc-idea-plugin-9.0">
         <idea dest="idea-tc-idea-plugin-9.0"
-              debug-port="6109"
-              build-type="${IDEA-14.1.type}"
-              build-number="${IDEA-14.1.number}">
+              debug-port="6190"
+              build-type="${IDEA-TC.type}"
+              build-number="${IDEA-TC.number}"
+              unscrambled="${IDEA-TC.unscrambled}">
             <teamcity-plugin/>
         </idea>
     </target>
 
     <target name="idea-tc-idea-plugin-8.1">
         <idea dest="idea-tc-idea-plugin-8.1"
-              debug-port="6108"
-              build-type="${IDEA-14.1.type}"
-              build-number="${IDEA-14.1.number}">
+              debug-port="6181"
+              build-type="${IDEA-TC.type}"
+              build-number="${IDEA-TC.number}"
+              unscrambled="${IDEA-TC.unscrambled}">
             <teamcity-plugin/>
         </idea>
     </target>
