@@ -67,6 +67,8 @@
         <echo file="${idea-unpack}/bin/start.sh" append="false"><![CDATA[#!/bin/sh
 script=$0
 cd `dirname $script`
+export IDEA_PROPERTIES="$(pwd)/idea.properties"
+export IDEA_VM_OPTIONS="$(pwd)/idea.vmoptions"
 ./${idea-sh} $*
 ]]></echo>
         <chmod perm="+x">

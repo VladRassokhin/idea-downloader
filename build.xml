@@ -365,6 +365,8 @@
               <arg value="/c"/>
               <arg value="jonnyzzz.bat"/>
               <env key="JAVA_HOME" value="${IDEA_JAVA_HOME}"/>
+              <env key="IDEA_PROPERTIES" value="${bin}/@{dest}.app/bin/idea.properties"/>
+              <env key="IDEA_VM_OPTIONS" value="${bin}/@{dest}.app/bin/idea.vmoptions"/>
           </exec>
 
           <exec dir="${bin}" osfamily="mac" executable="open">
