@@ -58,13 +58,11 @@
 
     <target name="idea-properties-mac" if="idea-for-mac">
         <property name="idea-ext" value="dmg"/>
-        <property name="idea-infix-ivy" value="-custom-jdk-bundled" />
+        <property name="idea-infix-ivy" value=""/>
         <property name="idea-vmo" value="${idea-mac-vmoptions}"/>
         <property name="idea-vmo64" value="${idea-lin-vmoptions64}"/>
         <!-- support for new IntelliJ IDEA products layout -->
-        <condition property="idea-patch-home" value="${idea-unpack}/Contents" else="${idea-unpack}">
-           <available type="dir" file="${idea-unpack}/Contents/lib"/>
-        </condition>
+        <property name="idea-patch-home" value="${idea-unpack}/Contents"/>
     </target>
 
     <target name="idea-properties-linux" if="idea-for-linux">
