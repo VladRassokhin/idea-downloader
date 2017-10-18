@@ -3,6 +3,7 @@
 .ivy/
 .svn/
 apps/
+.idea/
 
 last-fatch-log.txt
 build.properties
