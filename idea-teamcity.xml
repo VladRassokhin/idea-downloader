@@ -13,9 +13,19 @@
         </idea>
     </target>
 
+    <target name="idea-tc-idea-plugin-2017.1">
+        <idea dest="idea-tc-idea-plugin-2017.1"
+              debug-port="6111"
+              build-type="${IDEA-TC.type}"
+              build-number="${IDEA-TC.number}"
+              unscrambled="${IDEA-TC.unscrambled}">
+            <teamcity-plugin/>
+        </idea>
+    </target>
+
     <target name="idea-tc-idea-plugin-10.0">
         <idea dest="idea-tc-idea-plugin-10.0"
-              debug-port="6191"
+              debug-port="6110"
               build-type="${IDEA-TC.type}"
               build-number="${IDEA-TC.number}"
               unscrambled="${IDEA-TC.unscrambled}">
@@ -56,6 +66,9 @@
 
     <target name="run-tc-idea">
         <run-app dest="idea-tc-idea-plugin"/>
+    </target>
+    <target name="run-tc-idea-2017.1">
+        <run-app dest="idea-tc-idea-plugin-2017.1"/>
     </target>
     <target name="run-tc-idea-10.0">
         <run-app dest="idea-tc-idea-plugin-10.0"/>
