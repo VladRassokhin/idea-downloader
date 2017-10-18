@@ -57,21 +57,21 @@
             <arg line="-c 'cp -Rpf ${idea-temp}/mount/${idea-product-dir-mask} ${idea-temp}/mount.copy'"/>
         </exec>
 
-        <move todir="${idea-unpack}">
-            <fileset dir="${idea-temp}/mount.copy">
-                <include name="${idea-product-dir-mask}/**"/>
-            </fileset>
-            <cutdirsmapper dirs="1"/>
-        </move>
+        <exec executable="hdiutil" dir="${idea-temp}">
+            <arg value="unmount"/>
+            <arg value="-force"/>
+            <arg value="-whole"/>
+            <arg path="${idea-temp}/mount"/>
+        </exec>
+
+        <!-- Use cp to preserve symlinks -->
+        <exec executable="bash">
+            <arg line="-c 'cd ${idea-temp}/mount.copy/${idea-product-dir-mask}/; echo `pwd`; ls; cp -Rpf . ${idea-unpack}'"/>
+        </exec>
 
         <!-- sadly it's not clear why NSBundle fails to load here, but the only way to get IDEA running is to force it using public OS JRE -->
         <delete dir="${idea-unpack}/Contents/jre" />
         <delete dir="${idea-temp}/mount.copy"/>
-
-        <exec executable="hdiutil" dir="${idea-temp}">
-            <arg value="detach"/>
-            <arg path="${idea-temp}/mount"/>
-        </exec>
 
         <delete file="${idea-temp}/idea.dmg"/>
         <delete dir="${idea-temp}/mount"/>
