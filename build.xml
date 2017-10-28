@@ -11,22 +11,12 @@
 
  <target name="start">
    <echo>Use 'idea', 'idea-eap'             =>  run     </echo>
-   <echo>Use 'idea-15', 'idea-15-eap'       =>  run     </echo>
-   <echo>Use 'idea-14.1', 'idea-14.1-eap'   =>  run     </echo>
-   <echo>Use 'idea-14', 'idea-14-eap'       =>  run     </echo>
-   <echo>Use 'idea-13.1', 'idea-13.1-eap'   =>  run     </echo>
-   <echo>Use 'idea-13', 'idea-13-eap'       =>  run     </echo>
    <echo>Use 'kotlin'  --- bootstrap build              </echo>
-   <echo>    'kotlin-trunk                              </echo>
-   <echo>    'kotlin-M12'                               </echo>
-   <echo>    'kotlin-M11'                               </echo>
-   <echo>    'kotlin-M10'                               </echo>
-   <echo>    'kotlin-M9', 'kotlin-M8',                  </echo>
-   <echo>    'kotlin-M7', 'kotlin-M6.2'     =>  run-kt  </echo>
+   <echo>    'kotlin-trunk'                 =>  run-kt  </echo>
    <echo/>
    <echo>For idea and kotlin you may override versions via</echo>
    <echo>   -Didea.build=134.222     </echo>
-   <echo>   -Dkotlin.build=0.6.333   </echo>
+   <echo>   -Dkotlin.build=1.1.50-dev-1451</echo>
    <echo>   -DIDEA_JAVA_HOME=PATH_TO_JAVA  path to Java on Windows </echo>
    <echo>   -Didea-mac-jdk-version=1.8     MacOS JDK version</echo>
    <echo/>
@@ -54,90 +44,6 @@
  <target name="idea-eap">
      <idea dest="idea"
            build-type="ijplatform_master_IdeaTrunkEap_Installers"
-           build-number="EAP.tcbuildtag">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-15">
-     <property name="idea.build" value="latest.lastSuccessful" />
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform143_Idea_Installers"
-           build-number="${idea.build}">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-15-eap">
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform143_Idea_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag">
-         <teamcity-plugin/>
-     </idea>
- </target>
- 
- <target name="idea-14.1">
-     <property name="idea.build" value="latest.lastSuccessful" />
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform141_IdeaTrunk_Installers"
-           build-number="${idea.build}">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-14.1-eap">
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform141_IdeaTrunk_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag">
-         <teamcity-plugin/>
-     </idea>
- </target>
- 
- <target name="idea-14">
-     <idea dest="idea"
-           build-type="${IDEA-14.type}"
-           build-number="${IDEA-14.number}">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-14-eap">
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatformMaster_Idea14_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-13.1">
-     <property name="idea.build" value="latest.lastSuccessful" />
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform135_IdeaTrunk_Installers"
-           build-number="${idea.build}">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-13.1-eap">
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform135_IdeaTrunk_Installers"
-           build-number="EAP.tcbuildtag">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-13">
-     <property name="idea.build" value="latest.lastSuccessful" />
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform13_IdeaTrunk_Installers"
-           build-number="${idea.build}">
-         <teamcity-plugin/>
-     </idea>
- </target>
-
- <target name="idea-13-eap">
-     <idea dest="idea"
-           build-type="ijplatform_IjPlatform13_IdeaTrunk_Installers"
            build-number="EAP.tcbuildtag">
          <teamcity-plugin/>
      </idea>
@@ -171,83 +77,6 @@
          <kotlin-plugin build-number="${kotlin.build}"/>
      </idea>
  </target>
-
- <target name="kotlin-M12">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatform141_IdeaTrunk_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag"
-           unscrambled="false" >
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M12.1.tcbuildtag" build-branch="M12/bootstrap"/>
-     </idea>
- </target>
-
- <target name="kotlin-M11">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatform141_IdeaTrunk_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag"
-           unscrambled="false" >
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M11.tcbuildtag"/>
-     </idea>
- </target>
- 
- <target name="kotlin-M10">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatformMaster_Idea14_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag"
-           unscrambled="false" >
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M10.tcbuildtag"/>
-     </idea>
- </target>
- 
- <target name="kotlin-M9">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatformMaster_Idea14_InstallersForEapRelease"
-           build-number="EAP.tcbuildtag"
-           unscrambled="false" >
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M9.tcbuildtag"/>
-     </idea>
- </target>
- 
-<target name="kotlin-M8">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_master_IdeaTrunkEap_Installers"
-           build-number="EAP.tcbuildtag"
-           unscrambled="false" >
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M8_update_1.tcbuildtag" build-branch="idea14_M8"/>
-     </idea>
- </target>
-
- <target name="kotlin-M7">
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatform135_Idea131and1311_Installers"
-           build-number="13.1.3.tcbuildtag">
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M7.tcbuildtag"/>
-     </idea>
- </target>
-
- <target name="kotlin-M6.2">
-     <property name="idea.build" value="latest.lastSuccessful" />
-     <idea dest="kotlin"
-           debug-port="5006"
-           build-type="ijplatform_IjPlatform13_IdeaTrunk_Installers"
-           build-number="${idea.build}">
-         <teamcity-plugin/>
-         <kotlin-plugin build-number="M6.2.tcbuildtag"/>
-     </idea>
- </target>
-
 
  <macrodef name="teamcity-plugin">
      <sequential>
