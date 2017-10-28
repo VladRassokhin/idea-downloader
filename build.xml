@@ -16,7 +16,6 @@
    <echo>Use 'idea-14', 'idea-14-eap'       =>  run     </echo>
    <echo>Use 'idea-13.1', 'idea-13.1-eap'   =>  run     </echo>
    <echo>Use 'idea-13', 'idea-13-eap'       =>  run     </echo>
-   <echo>Use 'ws', 'ws-9'                   =>  run-ws  </echo>
    <echo>Use 'kotlin'  --- bootstrap build              </echo>
    <echo>    'kotlin-trunk                              </echo>
    <echo>    'kotlin-M12'                               </echo>
@@ -24,18 +23,14 @@
    <echo>    'kotlin-M10'                               </echo>
    <echo>    'kotlin-M9', 'kotlin-M8',                  </echo>
    <echo>    'kotlin-M7', 'kotlin-M6.2'     =>  run-kt  </echo>
-   <echo>Use 'py', 'py-eap'                 =>  run-py  </echo>
-   <echo>Use 'cpp', 'cpp-eap'               =>  run-cpp </echo>
    <echo/>
    <echo>For idea and kotlin you may override versions via</echo>
    <echo>   -Didea.build=134.222     </echo>
    <echo>   -Dkotlin.build=0.6.333   </echo>
-   <echo>   -Dpy.build=...           </echo>
-   <echo>   -Dcpp.build=...          </echo>
    <echo>   -DIDEA_JAVA_HOME=PATH_TO_JAVA  path to Java on Windows </echo>
    <echo>   -Didea-mac-jdk-version=1.8     MacOS JDK version</echo>
    <echo/>
-   <echo>Use 'run' or 'run-kt' or 'run-py' to start IDEA </echo>
+   <echo>Use 'run' or 'run-kt' to start IDEA </echo>
    <echo/> 
    <echo>Call 'fetch-only' task before to make the script only download files to cache</echo>
    <echo/>
@@ -46,52 +41,6 @@
  
  <import file="build.common.xml"/>
  <import file="build.idea.xml"/>
-
- <target name="cpp">
-    <property name="cpp.build" value="latest.lastSuccessful" />
-    <cpp dest="cpp"
-	  debug-port="5008"
-	  build-type="CPP_IDE_Installers"
-	  build-number="${cpp.build}" />
- </target> 
-
- <target name="cpp-eap">
-    <cpp dest="cpp"
-          debug-port="5008"
-          build-type="CLion_EAP_Installers"
-          build-number="EAP.tcbuildtag" />
- </target>
-
- <target name="ws">
-    <property name="ws.build" value="latest.lastSuccessful" />
-    <webstorm dest="ws"
-	  debug-port="5011"
-	  build-type="bt3948"
-	  build-number="${ws.build}" />
- </target> 
-
- <target name="ws-9">
-    <property name="ws.build" value="9.0.1.tcbuildtag" />
-    <webstorm dest="ws"
-	  debug-port="5011"
-	  build-type="ijplatform_IjPlatform139_WebStorm9_Installers"
-	  build-number="${ws.build}" />
- </target>
-
- <target name="py">
-    <property name="py.build" value="latest.lastSuccessful" />
-    <pycharm dest="py"
-	  debug-port="5007"
-	  build-type="bt824"
-	  build-number="${py.build}" />
- </target> 
-
- <target name="py-eap">
-    <pycharm dest="py"
-          debug-port="5007"
-          build-type="bt824"
-          build-number="EAP.tcbuildtag" />
- </target>
 
  <target name="idea">
      <property name="idea.build" value="latest.lastSuccessful" />
@@ -329,7 +278,6 @@
      <antcall2 target="idea"/>
      <antcall2 target="idea-15"/>
      <antcall2 target="idea-15-eap"/>
-     <antcall2 target="cpp-eap" /> 
   </target>
 
   <macrodef name="antcall2">
@@ -383,21 +331,9 @@
   <target name="run">
       <run-app dest="idea"/>
   </target>
- 
-  <target name="run-ws">
-      <run-app dest="ws"/>
-  </target>
 
   <target name="run-kt">
       <run-app dest="kotlin"/>
   </target>
-
-  <target name="run-cpp">
-      <run-app dest="cpp" />
-  </target>    
-
-  <target name="run-py">
-      <run-app dest="py" />
-  </target>    
 
 </project>
