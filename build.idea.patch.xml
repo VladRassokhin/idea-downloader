@@ -88,7 +88,6 @@ export IDEA_VM_OPTIONS="$(pwd)/idea.vmoptions"
                                                        update-idea-patch-vmo,
                                                        update-idea-patch64-settings-win,
                                                        update-idea-patch64-settings-linux,
-                                                       update-idea-patch-plist,
                                                        update-idea-patch-props"/>
 
     <target name="update-idea-patch-vmo">
@@ -110,14 +109,6 @@ export IDEA_VM_OPTIONS="$(pwd)/idea.vmoptions"
         <replaceregexp file="${idea-vmo-path}" match="[\r\n]+" replace="${line.separator}" flags="g" byline="false"/>
         <replaceregexp file="${idea-vmo-path}" match="^\s+" replace="" flags="g" byline="true"/>
 
-    </target>
-
-    <target name="update-idea-patch-plist" if="idea-for-mac">
-        <condition property="idea-patch-info-plist" value="${idea-patch-home}/Contents/Info.plist" else="${idea-patch-home}/Info.plist">
-          <available file="${idea-patch-home}/Contents/Info.plist" />
-        </condition>
-        <replaceregexp file="${idea-patch-info-plist}" match="-agentlib:yjp[^\s]+" replace="" flags="g" byline="true"/>
-        <replaceregexp file="${idea-patch-info-plist}" match="&lt;string&gt;(1.[6789]\+?\*?,?)+&lt;/string&gt;" replace="&lt;string&gt;${idea-mac-jdk-version}*&lt;/string&gt;" flags="g" byline="true"/>
     </target>
 
     <target name="update-idea-patch-props">
