@@ -102,8 +102,9 @@ export IDEA_VM_OPTIONS="$(pwd)/idea.vmoptions"
             -XX:+HeapDumpOnOutOfMemoryError
             -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${idea-debug-port}
             -XX:+UseCompressedOops
-            -XX:ReservedCodeCacheSize=228m
+            -XX:ReservedCodeCacheSize=256m
             -Dsun.awt.disablegrab=true
+            -Duse.linux.keychain=false
             -Dteamcity.ideplugin.development.mode=true
         </concat>
         <replaceregexp file="${idea-vmo-path}" match="[\r\n]+" replace="${line.separator}" flags="g" byline="false"/>
